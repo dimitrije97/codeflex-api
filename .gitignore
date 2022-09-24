@@ -1,0 +1,21 @@
+# IDE
+.idea
+.vscode
+.DS_STORE
+
+# NodeJS
+node_modules/
+
+# Tests
+coverage/
+
+# Env file
+.env.dev
+
+# Docker
+.docker/volumes/
+.docker/.env.docker.dev
+
+yarn-error.log
+
+dist/
