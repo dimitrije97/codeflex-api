@@ -1,1 +1,3 @@
-export const ENTITIES = [];
+import { ComputerPartEntity } from './ComputerPartEntity';
+
+export const ENTITIES = [ComputerPartEntity];
