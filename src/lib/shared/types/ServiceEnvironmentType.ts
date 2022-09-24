@@ -12,4 +12,5 @@ export type ServiceEnvironmentType = {
     user: string;
     port: number;
   };
+  csvFilePath: string;
 };

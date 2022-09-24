@@ -17,4 +17,5 @@ export const environment: ServiceEnvironmentType = {
     port: +(process.env.POSTGRES_PORT || 5432),
     user: process.env.POSTGRES_USER || 'Enter your DB username!',
   },
+  csvFilePath: `${__dirname}/../../../../${process.env.CSV_FILE ?? 'Programming_Test_2_1.csv'}`
 };
