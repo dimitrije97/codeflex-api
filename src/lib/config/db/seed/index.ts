@@ -1,3 +1,4 @@
 import { usersSeed } from './usersSeed';
+import { warehousesSeed } from "./warehousesSeed";
 
-export { usersSeed };
+export { usersSeed, warehousesSeed };

@@ -13,4 +13,6 @@ export type ServiceEnvironmentType = {
     port: number;
   };
   csvFilePath: string;
+  getCurrenciesApiUrl: string;
+  currencyCronExpression: string;
 };

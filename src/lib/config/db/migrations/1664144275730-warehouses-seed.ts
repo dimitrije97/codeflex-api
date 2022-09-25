@@ -11,8 +11,8 @@ export class warehousesSeed1664144275730 implements MigrationInterface {
 
     await Promise.all(
       parts.map((part: ComputerPartEntity) => [
-        queryRunner.manager.createQueryBuilder().insert().into('warehouse').values(warehouses(part)[0]).execute(),
         queryRunner.manager.createQueryBuilder().insert().into('warehouse').values(warehouses(part)[1]).execute(),
+        queryRunner.manager.createQueryBuilder().insert().into('warehouse').values(warehouses(part)[0]).execute(),
       ]),
     );
   }
