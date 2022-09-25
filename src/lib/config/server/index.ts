@@ -1,3 +1,3 @@
-import { configureServer } from "./configureServer";
+import { configureServer } from './configureServer';
 
 export { configureServer };

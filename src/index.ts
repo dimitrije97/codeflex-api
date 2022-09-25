@@ -5,9 +5,9 @@ import { environment } from './lib/config/env';
 import { configureDatabase } from './lib/config/db';
 
 (async () => {
-    const server: Express = configureServer();
+  const server: Express = configureServer();
 
-    await configureDatabase();
+  await configureDatabase();
 
-    server.listen(environment.port, () => console.log(`${environment.serviceName} is up on port ${environment.port}`));
+  server.listen(environment.port, () => console.log(`${environment.serviceName} is up on port ${environment.port}`));
 })();
