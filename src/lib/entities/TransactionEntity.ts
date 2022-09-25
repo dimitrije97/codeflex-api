@@ -21,10 +21,10 @@ export class TransactionEntity extends BaseEntity {
   tax!: TaxEntity;
 
   @Expose()
-  @Column()
+  @Column({ type: 'decimal' })
   priceWithoutTax!: number;
 
   @Expose()
-  @Column()
+  @Column({ type: 'decimal' })
   priceWithTax!: number;
 }
