@@ -27,16 +27,15 @@ export class computerParts1664038105955 implements MigrationInterface {
     const parts: Partial<ComputerPartEntity>[] = csvRows.map((row: CsvRowType) => mapCsvRowToComputerPart(row));
 
     await Promise.all(
-      parts
-        .map((part: Partial<ComputerPartEntity>) =>
-          queryRunner.manager
-            .createQueryBuilder()
-            .insert()
-            .into('computer_part', Object.keys(part))
-            .values(part)
-            .returning('id')
-            .execute(),
-        ),
+      parts.map((part: Partial<ComputerPartEntity>) =>
+        queryRunner.manager
+          .createQueryBuilder()
+          .insert()
+          .into('computer_part', Object.keys(part))
+          .values(part)
+          .returning('id')
+          .execute(),
+      ),
     );
   }
 
