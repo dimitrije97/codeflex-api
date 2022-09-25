@@ -3,6 +3,7 @@ import { Expose } from 'class-transformer';
 
 import { BaseEntity } from './BaseEntity';
 import { TransactionEntity } from './TransactionEntity';
+import { WarehouseEntity } from './WarehouseEntity';
 
 @Entity({ name: 'computer_part' })
 export class ComputerPartEntity extends BaseEntity {
@@ -29,4 +30,8 @@ export class ComputerPartEntity extends BaseEntity {
   @Expose()
   @OneToMany(() => TransactionEntity, (transaction: TransactionEntity) => transaction.part)
   transactions!: TransactionEntity[];
+
+  @Expose()
+  @OneToMany(() => WarehouseEntity, (warehouse: WarehouseEntity) => warehouse.part)
+  warehouses!: WarehouseEntity[];
 }
