@@ -1,7 +1,8 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { Expose } from 'class-transformer';
 
 import { BaseEntity } from './BaseEntity';
+import { TransactionEntity } from './TransactionEntity';
 
 @Entity({ name: 'computer_part' })
 export class ComputerPartEntity extends BaseEntity {
@@ -24,4 +25,8 @@ export class ComputerPartEntity extends BaseEntity {
   @Expose()
   @Column({ type: 'decimal', default: 0.0 })
   price!: number;
+
+  @Expose()
+  @OneToMany(() => TransactionEntity, (transaction: TransactionEntity) => transaction.part)
+  transactions!: TransactionEntity[];
 }

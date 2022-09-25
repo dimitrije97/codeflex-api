@@ -4,17 +4,13 @@ import { Expose } from 'class-transformer';
 import { BaseEntity } from './BaseEntity';
 import { TransactionEntity } from './TransactionEntity';
 
-@Entity({ name: 'user' })
-export class UserEntity extends BaseEntity {
+@Entity({ name: 'tax' })
+export class TaxEntity extends BaseEntity {
   @Expose()
-  @Column({ unique: true })
-  email!: string;
+  @Column({ type: 'decimal', default: 23.5 })
+  tax!: number;
 
   @Expose()
-  @Column()
-  password!: string;
-
-  @Expose()
-  @OneToMany(() => TransactionEntity, (transaction: TransactionEntity) => transaction.buyer)
+  @OneToMany(() => TransactionEntity, (transaction: TransactionEntity) => transaction.tax)
   transactions!: TransactionEntity[];
 }
