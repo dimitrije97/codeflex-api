@@ -16,6 +16,8 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/csvtojson": "^2.0.0",
+    "@types/express-jwt": "^6.0.4",
+    "@types/jsonwebtoken": "^8.5.9",
     "@types/node-cron": "^3.0.4",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "eslint": "^8.15.0",
@@ -37,6 +39,8 @@
     "csvtojson": "^2.0.10",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-jwt": "^7.7.5",
+    "jsonwebtoken": "^8.5.1",
     "node-cron": "^3.0.2",
     "pg": "^8.7.3",
     "typeorm": "0.2.36"

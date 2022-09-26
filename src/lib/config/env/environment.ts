@@ -8,7 +8,6 @@ dotenv.config({
 export const environment: ServiceEnvironmentType = {
   env: (process.env.NODE_ENV as EnvType) || 'dev',
   port: +(process.env.SERVICE_PORT || 3010),
-  salt: +(process.env.SALT || 10),
   serviceName: process.env.SERVICE_NAME || 'CodeFlex',
   database: {
     host: process.env.POSTGRES_HOST || 'localhost',
@@ -24,5 +23,9 @@ export const environment: ServiceEnvironmentType = {
     limit: +(process.env.LIMIT || 8),
     offset: +(process.env.OFFSET || 0),
     page: +(process.env.PAGE || 1),
+  },
+  security: {
+    salt: +(process.env.SALT || 10),
+    secret: process.env.SECRET || 'Secret is missing',
   },
 };
