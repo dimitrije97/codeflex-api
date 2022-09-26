@@ -16,7 +16,7 @@ const isBadRequest = (exception): boolean =>
   exception instanceof CelebrateError;
 
 // @ts-ignore
-const isNotFount = (exception): boolean => exception instanceof ResourceNotFoundException;
+const isNotFound = (exception): boolean => exception instanceof ResourceNotFoundException;
 
 const isUnauthorized = (exception): boolean => exception instanceof UnauthorizedException;
 
@@ -55,7 +55,7 @@ export const errorHandler = (err: any, req: Request, res: Response, next: NextFu
     return;
   }
 
-  if (isNotFount(err)) {
+  if (isNotFound(err)) {
     res.status(404).send(createNotFoundError(err));
     return;
   }
