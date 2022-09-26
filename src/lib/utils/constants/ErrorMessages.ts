@@ -1,0 +1,9 @@
+export const UNKNOWN_ERROR = 'The application has encountered an unknown error';
+export const BAD_REQUEST = 'BAD_REQUEST';
+export const NOT_FOUND = 'NOT_FOUND';
+export const UNAUTHORIZED = 'UNAUTHORIZED';
+export const MISSING_INVENTORY = 'Missing inventory';
+export const RESOURCE_NOT_FOUND = `Resource is not found`;
+export const AUTHENTICATION_FAILED = 'Access token missing from header';
+export const BAD_CREDENTIALS = 'Bad credentials;';
+export const INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR';

@@ -7,6 +7,7 @@ import { paymentRoutes } from '../../../api/payment/routes';
 import { currencyRoutes } from '../../../api/currencies/routes';
 import { environment } from '../env';
 import { authRoutes } from '../../../api/auth/routes';
+import { errorHandler } from '../../middlewares';
 
 export const configureRoutes = (app: Application): void => {
   app.use(
@@ -19,4 +20,6 @@ export const configureRoutes = (app: Application): void => {
   app.use('/api/transactions', transactionRoutes);
   app.use('/api/payment', paymentRoutes);
   app.use('/api/currencies', currencyRoutes);
+
+  app.use(errorHandler);
 };

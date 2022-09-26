@@ -5,6 +5,7 @@ import { LoginResponse } from '../dto/response';
 import { mapToClass } from '../../../lib/utils/mappers/ObjectMapper';
 import { LoginRequest } from '../dto/request';
 import { generateToken } from '../../../lib/utils/jwt';
+import { BadCredentialsException, ResourceNotFoundException } from '../../../lib/exceptions';
 
 interface IAuthService {
   login: (loginRequest: LoginRequest) => Promise<LoginResponse>;
@@ -18,13 +19,13 @@ const login = async (loginRequest: LoginRequest): Promise<LoginResponse> => {
   const user = await userRepository.findOne({ email });
 
   if (!user) {
-    throw new Error(); // TODO: handle error
+    throw new ResourceNotFoundException();
   }
 
   const isValid = await bcrypt.compare(password, user.password);
 
   if (!isValid) {
-    throw new Error(); // TODO: handle error
+    throw new BadCredentialsException();
   }
 
   const jwt = generateToken(user.id, user.email);
