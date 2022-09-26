@@ -1,4 +1,5 @@
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
+import { WarehouseResponse } from '../../warehouses/response';
 
 export class ComputerPartResponse {
   @Expose()
@@ -18,4 +19,8 @@ export class ComputerPartResponse {
 
   @Expose()
   price!: number;
+
+  @Expose()
+  @Type(() => WarehouseResponse)
+  warehouses!: WarehouseResponse[];
 }

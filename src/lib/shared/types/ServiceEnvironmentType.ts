@@ -15,4 +15,9 @@ export type ServiceEnvironmentType = {
   csvFilePath: string;
   getCurrenciesApiUrl: string;
   currencyCronExpression: string;
+  pagination: {
+    limit: number;
+    offset: number;
+    page: number;
+  };
 };
