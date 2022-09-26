@@ -1,0 +1,12 @@
+FROM node:12.17.0-alpine
+
+WORKDIR /home/node/codeflex-api
+
+COPY package*.json ./
+RUN npm install
+COPY . ./
+COPY ./.docker/.env.docker.dev ./.env.dev
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

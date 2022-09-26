@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { celebrate } from 'celebrate';
+
 import { authSchemas } from './AuthSchemas';
 import { LoginRequest } from '../dto/request';
 import { authService } from '../service';
