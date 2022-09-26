@@ -44,8 +44,8 @@ $ yarn
 ```
 $ cd .docker
 $ cp .env.docker.dev.example .env.docker.dev
-$ docker-compose -f docker-compose.dev.yml build
-$ docker-compose -f docker-compose.dev.yml up codeflex-db-dev
+$ docker compose -f docker-compose.dev.yml build
+$ docker compose -f docker-compose.dev.yml up codeflex-db-dev
 ```
 
 - Run migrations
@@ -65,8 +65,8 @@ $ yarn start
 ```
 $ cd .docker
 $ cp .env.docker.dev.example .env.docker.dev
-$ docker-compose -f docker-compose.dev.yml build
-$ docker-compose -f docker-compose.dev.yml up
+$ docker compose -f docker-compose.dev.yml build
+$ docker compose -f docker-compose.dev.yml up
 ```
 
 - Run migrations
