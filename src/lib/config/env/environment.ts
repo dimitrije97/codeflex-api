@@ -20,4 +20,9 @@ export const environment: ServiceEnvironmentType = {
   csvFilePath: `${__dirname}/../../../../${process.env.CSV_FILE ?? 'Programming_Test_2_1.csv'}`,
   getCurrenciesApiUrl: process.env.GET_CURRENCIES_API_URL || 'Api key is missing!',
   currencyCronExpression: process.env.CURRENCY_CRON_EXPRESSION || '0 1 * * *',
+  pagination: {
+    limit: +(process.env.LIMIT || 8),
+    offset: +(process.env.OFFSET || 0),
+    page: +(process.env.PAGE || 1),
+  },
 };

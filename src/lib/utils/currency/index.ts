@@ -1,3 +1,4 @@
 import { getCurrencies } from './getCurrencies';
+import { calculatePrice } from './calculatePrice';
 
-export { getCurrencies };
+export { getCurrencies, calculatePrice };
