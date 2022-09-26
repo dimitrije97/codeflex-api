@@ -4,7 +4,6 @@ export type ServiceEnvironmentType = {
   port: number;
   env: EnvType;
   serviceName: string;
-  salt: number;
   database: {
     name: string;
     host: string;
@@ -19,5 +18,9 @@ export type ServiceEnvironmentType = {
     limit: number;
     offset: number;
     page: number;
+  };
+  security: {
+    salt: number;
+    secret: string;
   };
 };
