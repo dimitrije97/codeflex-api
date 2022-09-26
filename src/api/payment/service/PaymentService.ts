@@ -14,6 +14,7 @@ import { WarehouseEntity } from '../../../lib/entities/WarehouseEntity';
 import { UserEntity } from '../../../lib/entities/UserEntity';
 import { TaxEntity } from '../../../lib/entities/TaxEntity';
 import { mapTransactionEntityToTransactionResponse } from '../../../lib/utils/mappers/transactions';
+import { MissingInventoryException } from '../../../lib/exceptions';
 
 interface IPaymentService {
   buyParts: (buyerId: string, request) => Promise<TransactionResponse>;
@@ -42,7 +43,7 @@ const buyParts = async (buyerId: string, request: BuyPartsRequest): Promise<Tran
   // TODO: check if warehouse exists
 
   if (warehouse.inventory - request.amount < 0) {
-    throw new Error('Missing inventory'); // TODO: error handling
+    throw new MissingInventoryException();
   }
 
   const priceWithoutTax: number = +part.price;
