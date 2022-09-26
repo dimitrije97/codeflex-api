@@ -12,7 +12,7 @@ const router = Router();
 
 router.get(
   '/',
-  [celebrate(queryPaginationSchemas.queryPagination)],
+  [celebrate(queryPaginationSchemas.queryPaginationWithFilters)],
   (
     req: Request<{}, any, {}, QueryParamsPaginationType & { search?: string; currency?: string }>,
     res: Response,
