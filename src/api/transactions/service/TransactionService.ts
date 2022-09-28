@@ -20,9 +20,9 @@ const getTransactionsByBuyer = async (
 
   const [items, count] = await transactionRepository
     .createQueryBuilder('transaction')
-    .leftJoinAndSelect('transactions.buyer', 'buyer')
-    .leftJoinAndSelect('transactions.taxes', 'tax')
-    .leftJoinAndSelect('transactions.part', 'part')
+    .leftJoinAndSelect('transaction.buyer', 'buyer')
+    .leftJoinAndSelect('transaction.tax', 'tax')
+    .leftJoinAndSelect('transaction.part', 'part')
     .skip(offset)
     .take(limit)
     .where('buyer.id = :buyerId', { buyerId })

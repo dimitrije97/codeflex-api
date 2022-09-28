@@ -11,7 +11,7 @@ import { TransactionResponse } from '../../../lib/shared/dto/transactions/respon
 const router = Router();
 
 router.get(
-  '/:buyerId/users',
+  '/:buyerId/user',
   [celebrate(queryPaginationSchemas.queryPagination)],
   (req: Request<{ buyerId: string }, any, {}, QueryParamsPaginationType>, res: Response, next: NextFunction) => {
     const { query, params } = req;
