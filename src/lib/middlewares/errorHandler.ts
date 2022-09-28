@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import { CelebrateError } from 'celebrate';
-import { BadCredentialsException, MissingInventoryException, UnauthorizedException } from '../exceptions';
+import {
+  BadCredentialsException,
+  MissingInventoryException,
+  ResourceNotFoundException,
+} from '../exceptions';
 import {
     BAD_REQUEST,
     INTERNAL_SERVER_ERROR,
@@ -8,6 +12,7 @@ import {
     UNAUTHORIZED,
     UNKNOWN_ERROR
 } from '../utils/constants/ErrorMessages';
+import {UnauthorizedError} from "express-jwt";
 
 // @ts-ignore
 const isBadRequest = (exception): boolean =>
@@ -18,7 +23,7 @@ const isBadRequest = (exception): boolean =>
 // @ts-ignore
 const isNotFound = (exception): boolean => exception instanceof ResourceNotFoundException;
 
-const isUnauthorized = (exception): boolean => exception instanceof UnauthorizedException;
+const isUnauthorized = (exception): boolean => exception instanceof UnauthorizedError;
 
 // @ts-ignore
 const createBadRequestError = (exception): ErrorResponse => ({
@@ -45,6 +50,7 @@ const createUnauthorizedError = (exception): ErrorResponse => ({
 });
 
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction): void => {
+
   if (isBadRequest(err)) {
     res.status(400).send(createBadRequestError(err));
     return;
